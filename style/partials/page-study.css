@@ -1,0 +1,123 @@
+#page-study #container {
+    width: 100vw;
+    height: 100vh;
+}
+
+.page-header {
+    background-color: var(--color-primary);
+    
+    display: flex;
+    flex-direction: column;
+}
+
+.page-header .top-bar-container {
+    width: 90%;
+    margin: 0 auto; /* espacos laterais automatico */
+
+    display: flex; /*deixa a <- no inicio */
+    align-self: center; /* vai centralizar a <- com o nome Proffy */
+    justify-content: space-between; /* deixa um espaco entre os dois  */
+
+    padding: 1.6rem 0;
+}
+
+.page-header .top-bar-container a {
+    height: 3.2rem;
+    transition: opacity 0.2s;
+ 
+}
+
+.page-header .top-bar-container a:hover {
+    opacity: 0.6;
+}
+
+.page-header .top-bar-container img {
+    height: 1.6rem;
+}
+
+.page-header .header-content {
+
+    width: 90%;
+    margin: 3.2rem auto;
+}
+
+.page-header .header-content strong {
+    font: 700 3.6rem Archivo;
+    line-height: 4.2rem;
+    color: var(--color-title-in-primary);
+}
+
+#search-teachers {
+    margin-top: 3.2rem;;
+
+}
+
+#search-teachers label {
+    color: var(--color-text-in-primary);
+}
+
+#search-teachers .select-block{
+    margin-bottom: 1.4rem;
+
+}
+
+#search-teachers button {
+    width: 100%;                            /*largura de 100% */
+    height: 5.6rem;                         /*altura de 5.6rem, isso vai fazer ele esticar todo */
+    background: var(--color-secondary);     /*cor de fundo */
+    color: var(--color-button-text);        /*cor do txt */
+    border: 0;                              /*tira a borda*/
+    border-radius: .8rem;                   /* arredodamos a borda */
+    cursor: pointer;                        /* cursor maozinha*/
+    font: 700 1.6rem Archivo;               /*altera a fonte deixando ela ela bolde 1.5 de altura e formato Archivo*/
+    display: flex;                          /*deixa o botao alinhado ao meio*/
+    align-items: center;                    /*  ""*/ 
+    justify-content: center;                /*""*/
+    text-decoration: none;                  
+    transition: background 0.2s;            /*transicao de cor de fundo*/
+    margin-top: 3.2rem;                     /*separa um um pouco do topo*/
+}
+
+#search-teachers button:hover {
+    background-color: var(--color-secondary-dark);
+
+}
+
+.select-block label,
+input-block label {
+    font-size: 1.4rem;
+    color: var(--color-text-complement);
+
+}
+
+.input-block input,
+.select-block select {
+    width: 100%;
+    height: 5.6rem;
+    margin-top: 0.8rem;
+    border-radius: 0.8rem;
+    background: var(--color-input-background);
+    border: 1px solid var(--colo-line-in-white);
+    outline: 0;                                     /* remove uma cor padrao de selecao*/
+    padding: 0 1.6rem;                              /*preenche as laterais */
+    font: 1.6rem Archivo;
+
+}
+
+.input-block {
+    position: relative;
+}
+
+.input-block:focus-within::after {                /*quando estiver dentro do input block algum elemento que estiver em foco vai ser ativado, ou seja um elemento dinamico*/
+    content: "";
+
+    width: calc(100% - 3.2rem);
+    height: 2px;
+    background: var(--color-primary-light);
+   
+    position: absolute;
+    left: 1.6rem;
+    bottom: 0;
+
+
+}
