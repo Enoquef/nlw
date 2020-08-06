@@ -3,51 +3,7 @@
     height: 100vh;
 }
 
-.page-header {
-    background-color: var(--color-primary);
-    
-    display: flex;
-    flex-direction: column;
-}
 
-.page-header .top-bar-container {
-    width: 90%;
-    margin: 0 auto; /* espacos laterais automatico */
-
-    display: flex; /*deixa a <- no inicio */
-    align-self: center; /* vai centralizar a <- com o nome Proffy */
-    justify-content: space-between; /* deixa um espaco entre os dois  */
-
-    padding: 1.6rem 0;
-}
-
-.page-header .top-bar-container a {
-    height: 3.2rem;
-    transition: opacity 0.2s;
- 
-}
-
-.page-header .top-bar-container a:hover {
-    opacity: 0.6;
-}
-
-.page-header .top-bar-container img {
-    height: 1.6rem;
-}
-
-.page-header .header-content {
-
-    width: 90%;
-    margin: 3.2rem auto;
-    position: relative;
-    
-}
-
-.page-header .header-content strong {
-    font: 700 3.6rem Archivo;
-    line-height: 4.2rem;
-    color: var(--color-title-in-primary);
-}
 
 #search-teachers {
     margin-top: 3.2rem;;
@@ -231,9 +187,6 @@ display: block;
 }
 
 @media (min-width: 700px) {
-    #page-study #container {
-        max-width: 100vw;
-    }
     .page-header {
         height: 340px;
     }
@@ -254,61 +207,6 @@ display: block;
         justify-content: center;
 
     }
-    
-    .teacher-item header,
-    .teacher-item footer {
-        padding: 32px;
-    }
-    
-    
-    .page-header .header-content strong {
-        max-width: 350px;
-    }
-
-    
-
-    #search-teachers {                          /* vai criar 4 colunas alinhadas no form */
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 16px;                              /* cria um  espaçament entrer os campos do form */
-        position: absolute;
-        bottom: -28px;
-
-    }
-    
-    #page-study main {
-        padding: 35px 0;
-        max-width: 740px;
-        margin: 0 auto;
-                
-    }
-
-    #search-teachers .select-block {
-        margin-bottom: 0;
-    
-    }
-
-    .teacher-item > p {                        /*paga o primeiro nivel do p */
-        margin-bottom: 0;
-    
-    }
-
-    .teacher-item footer p strong {
-        display: initial;
-        margin-left: 16px;
-    
-    }
-
-    .teacher-item footer button {
-        width: 245px;
-        font-size: 16px;
-        justify-content: center;
-    }
-    
-    .teacher-item footer button img {
-        margin-right: 16px;
-    }
-
  
 }
 
