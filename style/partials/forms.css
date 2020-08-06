@@ -5,8 +5,9 @@ input-block label {
 
 }
 
-.input-block input,
-.select-block select {
+.input-block input,                                 /* deixa os campos do form todo ajustado de acordo  */
+.select-block select,
+.textarea-block textarea {
     width: 100%;
     height: 5.6rem;
     margin-top: 0.8rem;
@@ -19,11 +20,20 @@ input-block label {
 
 }
 
-.input-block {
+.textarea-block textarea {
+    padding: 1.2rem 1.6rem;
+    height: 16rem;
+
+    resize: vertical;
+}
+
+.input-block,
+.textarea-block {
     position: relative;
 }
 
-.input-block:focus-within::after {                /*quando estiver dentro do input block algum elemento que estiver em foco vai ser ativado, ou seja um elemento dinamico*/
+.input-block:focus-within::after,
+.textarea-block:focus-within::after {                /*quando estiver dentro do input block algum elemento que estiver em foco vai ser ativado, ou seja um elemento dinamico*/
     content: "";
 
     width: calc(100% - 3.2rem);
