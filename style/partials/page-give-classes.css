@@ -117,6 +117,14 @@
 
 #page-give-classes main footer button:hover {
     background-color: var(--color-secondary-dark);
+
+}
+
+.shedule-item+.shedule-item {  /*vai pegar todo Shedule-item que for seguido de Shedule-item anterior */
+    margin-top: 3.2rem;
+    padding-top: 3.2rem;
+    border-top: 1px solid var(--color-line-in-white);
+
 }
 
 
