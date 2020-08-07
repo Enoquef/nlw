@@ -18,7 +18,6 @@ function cloneField() {
         
     })
     
-    
     //colocar na pagina: onde ?
     document.querySelector('#schedule-items').appendChild(newFieldCotainer)
 }
