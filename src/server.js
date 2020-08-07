@@ -5,7 +5,7 @@ const proffys = [
     whatsapp: "(83) 98654-0869", 
     bio: "Entusiasta das melhores tecnologias de química avançada.", 
     subject: "Química", 
-    cost: "R$ 20,00", 
+    cost: "20,00", 
     weekday: [0], 
     time_from: [700], 
     time_to: [1220] }
@@ -38,6 +38,13 @@ const weekdays = [
 ]
 
 // functionalities
+
+function getSubject(subjectNumber) {
+    const position = +subjectNumber -1
+    return subjects[position]
+}
+
+
 function pageLanding(req, res) {
     return res.render("index.html")
     
@@ -55,6 +62,8 @@ function pageGiveClasses(req, res) {
     // if you have data
     const isNotEmpty = Object.keys(data).length > 0  /* turning the keys of the object into arreys */
     if (isNotEmpty) {
+
+        data.subject = getSubject(data.subject)
         // add data to the proffys list
         proffys.push(data)
 
