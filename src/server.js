@@ -50,7 +50,19 @@ function pageStudy(req, res) {
 }
 
 function pageGiveClasses(req, res) {
-    return res.render("give-classes.html")
+    const data = req.query
+    
+    // if you have data
+    const isNotEmpty = Object.keys(data).length > 0  /* turning the keys of the object into arreys */
+    if (isNotEmpty) {
+        // add data to the proffys list
+        proffys.push(data)
+
+        return res.redirect("/study")
+    }
+
+    // if not, do not page
+    return res.render("give-classes.html", {subjects, weekdays})
 
 } 
 
