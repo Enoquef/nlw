@@ -2,6 +2,7 @@ const Database = require('./database/db')
 
 const { subjects, weekdays, getSubject, convertHoursToMinutes } = require('./utils/format')
 
+
 function pageLanding(req, res) {
     return res.render("index.html")
 }
@@ -73,11 +74,12 @@ async function saveClasses(req, res) {
 
     try {
         const db = await Database
-        await createProffy(db, {proffyValue,  classValue, classScheduleValues})
+        await createProffy(db, {proffyValue,  classValue, classScheduleValues })
+        let queryString = "?subject=" + req.body.subject
+        queryString +=  "&weekday=" + req.body.weekday[0]
+        queryString +=  "&time=" + req.body.time_from[0]
+        return res.redirect("/study" + queryString)
 
-    return res.redirect("/study")
-        
-        
     } catch (error) {
         console.log('o erro ta por aqui: save class')
         console.log(error)

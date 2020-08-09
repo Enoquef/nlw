@@ -10,7 +10,6 @@ const subjects = [
     "Português",
     "Química",
 ]
-
 const weekdays = [
     "Domingo",
     "Segunda feira",
@@ -19,18 +18,14 @@ const weekdays = [
     "Quinta feira",
     "Sexta feira",
     "Sábado",
-
 ]
-
-function getSubject(subjectNumber) {
-    const position = +subjectNumber -1
-    return subjects[position]
+function getSubject (subjectNumber) {
+    const position = +subjects -1
+    return subjects[ position ]
 }
-
 function convertHoursToMinutes(time) {
-    const {hour, minutes} = time.split(":")
+    const [hour, minutes] = time.split(":")
     return Number((hour * 60) + minutes)
-
 }
 
 module.exports = {

@@ -71,21 +71,20 @@
             {% if proffys == "" %}
                 <p class="no-results"> Nenhum professor encontrado com a sua pesquisa.</p>
             {% else %}
-
                 {%for proffy in proffys %}
-                    <article class="teacher-item">
-                    <header>
-                        <img 
-                            src="{{proffy.avatar}}"
-                            alt="{{proffy.name}}">
-                        <div>
-                            <strong>{{proffy.name}}</strong>
-                            <span>{{proffy.subject}}</span>
-                        </div>
-                    </header>
-            
-                    <p>{{proffy.bio}}</p>
-            
+                <article class="teacher-item">
+                        <header>
+                            <img 
+                                src="{{proffy.avatar}}"
+                                alt="{{proffy.name}}">
+                            <div>
+                                <strong>{{proffy.name}}</strong>
+                                <span>{{proffy.subject}}</span>
+                            </div>
+                        </header>
+                    <p>
+                        {{proffy.bio}}
+                    </p>
                     <footer>
                         <p>Preço/hora<strong>R$ {{proffy.cost}}</strong>
                         </p>
@@ -94,10 +93,9 @@
                             <img src="images/icons/whatsapp.svg" alt="Whatsapp"> Entrar em contato
                         </a>
                     </footer>
-                    </article>
+                </article>
                 {%endfor%}
-            
-            {% endif %}
+            {%endif%}
 
         </main>
     </div>

@@ -2,14 +2,7 @@
 const express = require('express')
 const server = express()
 
-const {
-    pageLanding,
-    pageStudy,
-    pageGiveClasses,
-    saveClasses
-} = require('./pages')
-
-
+const { pageLanding, pageStudy, pageGiveClasses, saveClasses } = require('./pages')
 //set up nunjucks
 const nunjucks = require('nunjucks')
 nunjucks.configure('src/views',{
@@ -18,16 +11,11 @@ nunjucks.configure('src/views',{
 })
 
 // server start and configuration
-server
-
-.use(express.urlencoded({ extended: true}))
-// configuring static files (css, scripts, images)
-.use(express.static("public"))
+server.use(express.urlencoded({ extended: true})).use(express.static("public"))
 // application routes
 .get("/", pageLanding)
 .get("/study", pageStudy)
 .get("/give-classes", pageGiveClasses)
-.post("/save-class", saveClasses)
-// start server
+.post("/save-classes", saveClasses)
 .listen(5500)
 
