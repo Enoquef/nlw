@@ -40,10 +40,8 @@ async function pageStudy(req, res) {
         
     } catch (error) {
         console.log('o erro ta por aqui: page study')
-        console.log(error)
-        
+        console.log(error) 
     } 
-
 }
 
 function pageGiveClasses(req, res) {
