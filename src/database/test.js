@@ -1,23 +1,23 @@
 const Database = require('./db')
 const createProffy = require('./createProffy')
 
-Database.then((db) => {
+Database.then(async (db) => {
     // insert data
 
     proffyValue = {
-        name: 'Enoque Fernandes',
-        avatar: 'https://avatars0.githubusercontent.com/u/26550708?s=460&u=3ce11e5b40dfafc2ddcde2b539360b263acc862e&v=4',
-        whatsapp: '(83) 98654-0869',
-        bio: 'Entusiasta das melhores tecnologias de química avançada.'
+        name: "Enoque Fernandes",
+        avatar: "https://avatars0.githubusercontent.com/u/26550708?s=460&u=3ce11e5b40dfafc2ddcde2b539360b263acc862e&v=4",
+        whatsapp: "(83) 98654-0869",
+        bio: "Entusiasta das melhores tecnologias de química avançada."
     }
 
     classValue = {
-        subject: "Química",
+        subject: 1,
         cost: "20"
 
     }
 
-    classScheduleValue = [
+    classScheduleValues = [
         // class_id will come through the database, after registering the class
         {
             weekday: 1,
@@ -31,7 +31,32 @@ Database.then((db) => {
         }
     ]
 
-    // createProffy(db {proffyValue, classValue, classScheduleValue, })
+    // await createProffy(db, {proffyValue, classValue, classScheduleValues, })
 
     // query entered data
+    // all proffys
+    const selectedProffys = await db.all("SELECT * FROM proffys")
+    // console.log(selectedProffys)
+
+
+    const selectClassesAndProffys = await db.all(`
+        SELECT classes.*, proffys.*
+        FROM proffys
+        JOIN classes ON (classes.proffy_id = proffys.id)
+        WHERE classes.proffy_id = 1;
+    `)
+    // console.log(selectClassesAndProffys)
+
+
+    const selectClassesSchedules = await db.all(`
+        SELECT class_schedule.*
+        FROM class_schedule
+        WHERE class_schedule.class_id = "1"
+        AND class_schedule.weekday = "0"
+        AND class_schedule.time_from <= "1300"
+        AND class_schedule.time_to > "1300"
+    `)
+
+    console.log(selectClassesSchedules)
+    
 })

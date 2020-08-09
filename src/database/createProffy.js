@@ -1,18 +1,52 @@
-module.exports = async function(db, {proffyValue, classValue, classScheduleValue}) {
+module.exports = async function(db, {proffyValue, classValue, classScheduleValues}) {
     // insert data into the proffys table
     const insertedProffy = await db.run(`
          INSERT INTO proffys (
-             nome,
+             name,
              avatar,
              whatsapp,
              bio
          ) VALUES (
-             ${proffyValue.name},
-             ${proffyValue.avatar},
-             ${proffyValue.whatsapp},
-             ${proffyValue.bio}
+             "${proffyValue.name}",
+             "${proffyValue.avatar}",
+             "${proffyValue.whatsapp}",
+             "${proffyValue.bio}"
          );
     `)
 
-    const proffy_id = insertedProffy.lastId
+    const proffy_id = insertedProffy.lastID
+
+    // insert data into the class table
+    const insertedClass = await db.run(`
+         INSERT INTO classes (
+             subject,
+             cost,
+             proffy_id
+         ) VALUES (
+             "${classValue.subject}",
+             "${classValue.cost}",
+             "${proffy_id}"
+         );
+    `)
+
+    const class_id = insertedClass.lastID
+
+    const insertedAllClassScheduleValues = classScheduleValues.map((classScheduleValue) => {
+        return db.run(`
+            INSERT INTO class_schedule (
+                class_id,
+                weekday,
+                time_from,
+                time_to
+            ) VALUES (
+                "${class_id}",
+                "${classScheduleValue.weekday}",
+                "${classScheduleValue.time_from}",
+                "${classScheduleValue.time_to}"
+            );
+        `)
+    })
+
+    // here I will execute all db.runs () from class_schedule
+    await Promise.all(insertedAllClassScheduleValues)
 }

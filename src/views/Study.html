@@ -29,7 +29,7 @@
             <div class="header-content">
                 <strong>Esses sao os proffys disponíveis</strong>
                 <form id="search-teachers">
-                    <div class="select-block">\
+                    <div class="select-block">
                         <label for="subject">Matéria</label>
                         <select name="subject" id="subject">
                             <option value="" disabled="" hidden="">Selecione uma opção</option>
@@ -68,9 +68,12 @@
 
         <main>
 
-            {%for proffy in proffys %}
+            {% if proffys == "" %}
+                <p class="no-results"> Nenhum professor encontrado com a sua pesquisa.</p>
+            {% else %}
 
-                <article class="teacher-item">
+                {%for proffy in proffys %}
+                    <article class="teacher-item">
                     <header>
                         <img 
                             src="{{proffy.avatar}}"
@@ -91,9 +94,10 @@
                             <img src="images/icons/whatsapp.svg" alt="Whatsapp"> Entrar em contato
                         </a>
                     </footer>
-                </article>
-
-            {%endfor%}
+                    </article>
+                {%endfor%}
+            
+            {% endif %}
 
         </main>
     </div>
